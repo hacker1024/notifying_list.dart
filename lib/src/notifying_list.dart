@@ -45,9 +45,11 @@ abstract class NotifyingList<E> extends DelegatingList<E> implements List<E> {
   /// The created list is fixed-length if [growable] is set to false.
   ///
   /// The [length] must be non-negative.
-  NotifyingList.generate(int length, E Function(int index) generator,
-      {bool growable = true})
-      : super(List.generate(length, generator, growable: growable));
+  NotifyingList.generate(
+    int length,
+    E Function(int index) generator, {
+    bool growable = true,
+  }) : super(List.generate(length, generator, growable: growable));
 
   /// Creates a notifying list backed by a [base] list that calls [onModified]
   /// when the base is modified through it.
