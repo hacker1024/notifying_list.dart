@@ -32,12 +32,8 @@ class StreamNotifyingList<E> extends NotifyingList<E> implements List<E> {
   /// All elements of the created list share the same [fill] value.
   ///
   /// See: [List.filled].
-  StreamNotifyingList.filled(int length, E fill, {bool growable = false})
-      : super.filled(
-          length,
-          fill,
-          growable: growable,
-        );
+  StreamNotifyingList.filled(super.length, super.fill, {super.growable})
+      : super.filled();
 
   /// Creates a notifying list from [elements].
   ///
@@ -47,8 +43,7 @@ class StreamNotifyingList<E> extends NotifyingList<E> implements List<E> {
   /// otherwise, it returns a fixed-length list.
   ///
   /// See: [List.of].
-  StreamNotifyingList.of(Iterable<E> elements, {bool growable = true})
-      : super.of(elements, growable: growable);
+  StreamNotifyingList.of(super.elements, {super.growable}) : super.of();
 
   /// Generates a notifying list of values.
   ///
@@ -59,15 +54,8 @@ class StreamNotifyingList<E> extends NotifyingList<E> implements List<E> {
   /// The created list is fixed-length if [growable] is set to false.
   ///
   /// The [length] must be non-negative.
-  StreamNotifyingList.generate(
-    int length,
-    E Function(int index) generator, {
-    bool growable = true,
-  }) : super.generate(
-          length,
-          generator,
-          growable: growable,
-        );
+  StreamNotifyingList.generate(super.length, super.generator, {super.growable})
+      : super.generate();
 
   @protected
   @override
